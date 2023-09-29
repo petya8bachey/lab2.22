@@ -1,8 +1,3 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-
 public class Main {
     public static void main(String[] args) {
         //Задача 22. Дана разреженная квадратная матрица (CS). Повернуть матрицу на 90 градусов.
@@ -27,7 +22,7 @@ public class Main {
         System.out.println();
         print(rotate(matrix, 7), space, size);
     }
-    static public void print(Integer[][] matrix, int space, int size) {
+    static public void print(Integer[][] matrix, int space, int size) {f
         int n = 0;
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
@@ -50,11 +45,11 @@ public class Main {
         for (int i = 0; i < matrix[0].length; i++) {
             result[2][i] = 8 - matrix[1][i]; // column
         }
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) { // reverse 3 matrix
             result[i] = invert(result[i]);
         }
         int n = 0;
-        for (int i = 1; i <= size ; i++) {
+        for (int i = 1; i <= size ; i++) { // sort
             for (int j = 0; j < result[0].length; j++) {
                 if (result[1][j] == i) {
                     fResult[0][n] = result[0][j];
@@ -66,14 +61,7 @@ public class Main {
         }
         return fResult;
     }
-    static Integer[][] convert(Integer[] value, Integer[] line, Integer[] column) {
-        Integer[][] result = new Integer[3][value.length];
-        result[0] = value;
-        result[1] = line;
-        result[2] = column;
-        return result;
-    }
-    static Integer[] invert(Integer[] array) {
+    static Integer[] invert(Integer[] array) { // reverse matrix
         for (int i = 0; i < array.length / 2; i++) {
             Integer temp = array[i];
             array[i] = array[array.length - 1 - i];
